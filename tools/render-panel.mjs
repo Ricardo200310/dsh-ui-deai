@@ -1,0 +1,11 @@
+import { mkdirSync,writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { audit,renderMarkdown } from '../lib/engine/audit.js';
+import { emptyState } from '../lib/engine/state.js';
+import { draftDirection } from '../lib/engine/direction.js';
+import { browserHarness } from '../test/runtime.mjs';
+const report=audit('test/fixtures/review-needed.html');
+const state={...emptyState(),target:report.target,workspace:report.root,audit:{...report,markdown:renderMarkdown(report)},direction:draftDirection({root:report.root,report})};
+mkdirSync('.preview',{recursive:true});
+for(const [file,settings] of [['panel.html',false],['settings.html',true]])writeFileSync(join('.preview',file),browserHarness(state,{settings}));
+console.log('真实 React 预览已写入 .preview/panel.html 和 .preview/settings.html');

@@ -1,0 +1,4 @@
+interface:
+  display_name: "dsh-ui-deai"
+  short_description: "审查界面的模板化表达与交互问题，定位源码并记录设计调整依据和验收结果"
+  default_prompt: "使用 $dsh-ui-deai 审查这个界面，在保留功能和品牌约束的基础上改善模板化表达。"

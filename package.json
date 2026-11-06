@@ -1,0 +1,22 @@
+{
+  "name": "dsh-ui-deai",
+  "version": "1.0.0",
+  "description": "dsh-ui-deai：审查界面的模板化表达，定位源码问题，记录改造方向与验收结果。",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "assets/icon.svg",
+  "exports": { ".": "./lib/index.js", "./client": "./lib/client.js", "./cordis.patch.yml": "./cordis.patch.yml", "./package.json": "./package.json" },
+  "files": ["lib", "skills/dsh-ui-deai", "assets", "docs", "tools/install-profile.mjs", "cordis.patch.yml", "README.md", "CHANGELOG.md", "NOTICE.md", "LICENSE"],
+  "keywords": ["dsh", "dsh-plugin", "ui-review", "design", "ui-deai"],
+  "license": "MIT",
+  "author": "Ricardo <2665488842@qq.com>",
+  "repository": { "type": "git", "url": "git+https://github.com/Ricardo200310/dsh-ui-deai.git" },
+  "homepage": "https://github.com/Ricardo200310/dsh-ui-deai#readme",
+  "bugs": { "url": "https://github.com/Ricardo200310/dsh-ui-deai/issues" },
+  "engines": {"node": ">=22.12.0"},
+  "scripts": {"test": "node test/audit.test.mjs && node test/host.test.mjs", "test:client": "node test/client.test.mjs", "test:browser": "node test/browser.test.mjs", "smoke": "node test/host.test.mjs", "check": "node tools/check.mjs", "preview": "node tools/render-panel.mjs"},
+  "devDependencies": {"react": "18.3.1", "react-dom": "18.3.1"},
+  "dsh": {"bundle": {"patch": "./cordis.patch.yml"}, "client": {"platform": "web", "inject": ["slots"]}},
+  "peerDependencies": {"@deepseek-ai/dsh-client-ui-slots": "^0.2.0-rc.1", "@deepseek-ai/dsh-commands": "^0.2.0-rc.1", "@deepseek-ai/dsh-host-webserver": "^0.2.0-rc.1", "@deepseek-ai/dsh-skill": "^0.2.0-rc.1", "@deepseek-ai/dsh-tools": "^0.2.0-rc.1", "react": "^18.2.0"},
+  "peerDependenciesMeta": {"@deepseek-ai/dsh-client-ui-slots": {"optional": true}, "@deepseek-ai/dsh-commands": {"optional": true}, "@deepseek-ai/dsh-host-webserver": {"optional": true}, "@deepseek-ai/dsh-skill": {"optional": true}, "@deepseek-ai/dsh-tools": {"optional": true}}
+}
