@@ -97,6 +97,8 @@ npm run test:client
 
 发布内容由 package.json 的 `files` 白名单控制：开发缓存、测试和预览不随 npm 包发布，因此 `npm test`、`npm run check`、`npm run preview` 需要在源码仓库中运行。
 
+发布到 npm 与 GitHub 的完整步骤、预检脚本和回滚方式见 [docs/RELEASING.md](docs/RELEASING.md)。`npm run release:check` 会在上传前检查版本、tag、远端、npm 登录状态和测试；`npm publish` 也会由 `prepublishOnly` 自动执行 `check`、`test` 与 `test:client`。
+
 ## 目录
 
 - `lib/`：宿主入口、浏览器面板和审查引擎。
